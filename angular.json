@@ -99,8 +99,28 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "version": 2
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "mhb-events:build:production",
+              "serveTarget": "mhb-events:serve:production"
+            },
+            "development": {
+              "buildTarget": "mhb-events:build:development",
+              "serveTarget": "mhb-events:serve:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "64789666-64ff-4bf6-9dc3-6445435f5185"
   }
 }

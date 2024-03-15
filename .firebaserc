@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "mhb-events": {
+      "hosting": {
+        "mhb-events": [
+          "mhb-events"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "mhb-events"
+  }
+}
