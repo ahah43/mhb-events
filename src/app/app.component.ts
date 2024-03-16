@@ -5,6 +5,7 @@ import { AListComponent } from './a-list/a-list.component';
 import { StaffMemberComponent } from './staff-member/staff-member.component';
 
 
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -15,4 +16,5 @@ import { StaffMemberComponent } from './staff-member/staff-member.component';
 
 export class AppComponent {
   title = 'mhb-events';
+
 }

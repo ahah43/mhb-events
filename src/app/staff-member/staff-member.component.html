@@ -1,8 +1,24 @@
+<p>events-member works!</p>
+<ul>
+  <li *ngFor="let event of events$ | async">
+    {{ event.start_date?.toDate()?.toDateString() }}
+  </li>
+</ul>
+
+
 <p>staff-member works!</p>
 
 <ul>
-    <li *ngFor="let item of members$ | async">
-      {{ item.name }}
-    </li>
+  <li *ngFor="let item of members$ | async">
+    {{ item.name }}
+  </li>
 </ul>
 
+<ul>
+  @for (member of this.members$|async; track member.name) {
+  <li> {{ member.name }} </li>
+  }
+  @empty {
+    <li> There are no members to show.</li>
+  }
+</ul>
