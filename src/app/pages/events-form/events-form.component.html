@@ -1,0 +1,47 @@
+<!-- <label for="name">Name: </label>
+<input id="name" type="text" [formControl]="name">
+<p>Value: {{ name.value }}</p> -->
+
+<button type="button" (click)="updateName()">Update Name</button>
+
+<form class="example-form" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <!-- <div> -->
+        <!-- <mat-form-field> -->
+            <mat-label for="title">title: </mat-label>
+            <input id="title" type="text" formControlName="title">
+        <!-- </mat-form-field> -->
+        <!-- <mat-form-field> -->
+            <mat-label for="location">location: </mat-label>
+            <input id="location" type="text" formControlName="location">
+            <!-- </mat-form-field> -->
+        <!-- <mat-form-field> -->
+            <mat-label for="payment">payment: </mat-label>
+            <input id="payment" type="number" formControlName="payment">
+        <!-- </mat-form-field> -->
+    <!-- </div> -->
+    <div>
+        <mat-form-field>
+            <mat-label>Enter a date range</mat-label>
+            <mat-date-range-input [formGroup]="profileForm.controls.range" [rangePicker]="picker">
+                <input matStartDate formControlName="start" placeholder="Start date">
+                <input matEndDate formControlName="end" placeholder="End date">
+            </mat-date-range-input>
+            <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-date-range-picker #picker></mat-date-range-picker>
+
+            @if (profileForm.controls.range.controls.start.hasError('matStartDateInvalid')) {
+            <mat-error>Invalid start date</mat-error>
+            }
+            @if (profileForm.controls.range.controls.end.hasError('matEndDateInvalid')) {
+            <mat-error>Invalid end date</mat-error>
+            }
+        </mat-form-field>
+    </div>
+    <p>Complete the form to enable button.</p>
+    <button mat-flat-button color="primary" type="submit" [disabled]="!profileForm.valid">Submit</button>
+
+
+</form>
+
+<p>Selected range: {{profileForm.controls.range.value | json}}</p>

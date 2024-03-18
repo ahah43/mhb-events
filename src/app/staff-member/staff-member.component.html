@@ -1,7 +1,7 @@
 <p>events-member works!</p>
 <ul>
   <li *ngFor="let event of events$ | async">
-    {{ event.start_date?.toDate()?.toDateString() }}
+    {{ event.range?.start }}
   </li>
 </ul>
 
