@@ -1,1 +1,22 @@
-<p>assignment works!</p>
+<form [formGroup]="profileForm">
+<h4>mat-select</h4>
+<mat-form-field>
+    <mat-label>selectedEvent</mat-label>
+    <mat-select formControlName="selectedEvent" name="selectedEvent">
+        @for (event of this.events$ |async; track event.title) {
+        <mat-option [value]="event.title">{{event.title}}</mat-option>
+        }
+    </mat-select>
+</mat-form-field>
+
+<p></p>
+<mat-form-field>
+    <mat-label>selectedMember</mat-label>
+    <mat-select formControlName="selectedMember" name="selectedMember">
+        @for (member of this.members$ |async; track member.name) {
+        <mat-option [value]="member.name">{{member.name}}</mat-option>
+        }
+    </mat-select>
+</mat-form-field>
+
+</form>

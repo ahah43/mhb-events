@@ -1,4 +1,4 @@
-import { StaffMemberClass, EventClass } from './mhb-class.model';
+import { StaffMemberClass, EventClass, EventAssignmentClass } from './mhb-class.model';
 
 describe('StaffMemberClass', () => {
   it('should create an instance', () => {
@@ -11,3 +11,10 @@ describe('EventClass', () => {
     expect(new EventClass()).toBeTruthy();
   });
 });
+
+describe('EventAssignmentClass', () => {
+  it('should create an instance', () => {
+    expect(new EventAssignmentClass()).toBeTruthy();
+  });
+});
+

@@ -23,8 +23,9 @@ import { StaffMemberClass , EventClass} from '../mhb-class.model';
   styleUrl: './staff-member.component.scss'
 })
 export class StaffMemberComponent {
-  members$: Observable<StaffMemberClass[]>=this.mhb_Service.getAllStaff();
-  events$: Observable<EventClass[]>=this.mhb_Service.getAllEvents();
+  // members$: Observable<StaffMemberClass[]>=this.mhb_Service.getAllStaff();
+  members$: Observable<StaffMemberClass[]>=this.mhb_Service.members$;
+  events$: Observable<EventClass[]>=this.mhb_Service.events$;
   firestore: Firestore = inject(Firestore);
 
   // constructor() {
