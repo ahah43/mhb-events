@@ -12,6 +12,9 @@ class EventClass {
         location?: string;
         payment?: number;
         range?: rangeFields;
+        isFinished?: string;
+        capacity?: number;
+
 }
 
 interface rangeFields{

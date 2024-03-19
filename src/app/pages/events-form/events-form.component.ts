@@ -9,11 +9,12 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule} from '@angular/material/button';
 import { CrudOperationsService } from '../../crud-operations.service';
 import { EventClass } from '../../mhb-class.model';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @Component({
   selector: 'app-events-form',
   standalone: true,
-  imports: [ReactiveFormsModule,MatFormFieldModule, MatDatepickerModule, FormsModule, ReactiveFormsModule, JsonPipe, MatButtonModule, MatDividerModule, MatIconModule],
+  imports: [ReactiveFormsModule,MatFormFieldModule, MatDatepickerModule, FormsModule, JsonPipe, MatButtonModule, MatDividerModule, MatIconModule, MatCheckboxModule],
   templateUrl: './events-form.component.html',
   styleUrl: './events-form.component.scss',
   providers: [provideNativeDateAdapter()],
@@ -21,14 +22,18 @@ import { EventClass } from '../../mhb-class.model';
 export class EventsFormComponent {
 
   constructor (private fb: FormBuilder, private mhb_Service: CrudOperationsService) { }
+  // isFinished = false;
+
   profileForm = this.fb.group({
     title: new FormControl('', Validators.required),
     location: new FormControl('', Validators.required),
-    payment: new FormControl('', [Validators.required, Validators.pattern("^[0-9]\.?[0-9]*$"),]),
+    payment: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*\.?[0-9]*$"),]),
     range: new FormGroup({
       start: new FormControl<Date | null>(new Date()),
       end: new FormControl<Date | null>(new Date()),
-    })
+    }),
+    isFinished: new FormControl(false),
+    capacity: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$"),]),
   })
 
 
